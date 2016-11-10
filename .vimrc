@@ -198,8 +198,8 @@ imap <F4> <ESC> :TagbarToggle<CR>
 " colorscheme
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
-"colorscheme monokai
+" colorscheme solarized
+colorscheme molokai
 
 " cpp_class_scope_highlight
 let g:cpp_class_scope_highlight = 1
