@@ -151,6 +151,7 @@ map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
 "autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeIgnore=['\.~$', '\.pyc' ]
 
 " Doxygen
 let g:DoxygenToolkit_authorName="zuowenjian"
