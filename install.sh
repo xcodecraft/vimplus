@@ -52,20 +52,23 @@ cp -R ./colors ~/.vim
 mkdir ~/.fonts
 sudo rm -rf ~/.fonts/PowerlineSymbols.otf
 sudo rm -rf ~/.fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf
-cp ./fonts/PowerlineSymbols.otf ~/.fonts
-cp ./fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf ~/.fonts
-fc-cache -vf ~/.fonts
+sudo cp ./fonts/PowerlineSymbols.otf ~/.fonts
+sudo cp ./fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf ~/.fonts
+#sudo fc-cache -vf ~/.fonts
 
 mkdir -p ~/.config/fontconfig/conf.d
 sudo rm -rf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
-cp ./fonts/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
+sudo cp ./fonts/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if ! test -d  ~/.vim/bundle/Vundle.vim ; then 
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 
 vim -c "PluginInstall" -c "q" -c "q"
-
-cd ~/.vim/bundle/YouCompleteMe
-sudo ./install.py --clang-completer
+if ! test -e ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ;  then 
+    cd ~/.vim/bundle/YouCompleteMe
+    sudo ./install.py --clang-completer
+fi
 
 echo "Done!"
 
