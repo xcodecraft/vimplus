@@ -107,6 +107,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'L9'
+Plugin 'bufexplorer.zip'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'tomtom/tcomment_vim'
 Plugin 'chxuan/change-colorscheme'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
@@ -142,11 +145,6 @@ filetype plugin indent on
 " load vim default plugin
 runtime macros/matchit.vim
 
-" change-colorscheme
-map <F10> :NextColorScheme<CR>
-imap <F10> <ESC> :NextColorScheme<CR>
-map <F9> :PreviousColorScheme<CR>
-imap <F9> <ESC> :PreviousColorScheme<CR>
 
 " nerdtree
 map <F3> :NERDTreeToggle<CR>
@@ -155,7 +153,7 @@ imap <F3> <ESC> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Doxygen
-let g:DoxygenToolkit_authorName="chxuan, 787280310@qq.com"
+let g:DoxygenToolkit_authorName="zuowenjian"
 let s:licenseTag = "Copyright(C)\<enter>"
 let s:licenseTag = s:licenseTag . "For free\<enter>"
 let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
@@ -207,7 +205,7 @@ let g:cpp_experimental_template_highlight = 1
 let c_no_curly_error = 1
 
 " airline
-let g:airline_theme="luna"
+let g:airline_theme="molokai"
 let g:airline_powerline_fonts = 1
 "let g:airline_section_b = '%{strftime("%c")}'
 "let g:airline_section_y = 'BN: %{bufnr("%")}'
@@ -217,18 +215,27 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
+let g:airline_left_sep      = ''
+let g:airline_left_alt_sep  = ''
+let g:airline_right_sep     = ''
 let g:airline_right_alt_sep = ''
 nnoremap <C-N> :bn<CR>
-nnoremap <C-P> :bp<CR>
+nnoremap <C-M> :bp<CR>
 
 " ctrlp
-let g:ctrlp_map = '<c-f>'
+let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = ':CtrlP'
 let g:ctrlp_working_path_mode = '0'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc     " MacOSX/Linux
+
+" bufexplorer
+" 
+nnoremap  <leader>be : BufExplorer
+nnoremap  <leader>bs : BufExplorerHorizontalSplit
+
+" vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
+vnoremap <Leader>: :EasyAlign:s0l1<CR>
 
 " vim-devicons
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
