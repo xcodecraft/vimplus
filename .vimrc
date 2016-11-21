@@ -151,7 +151,7 @@ map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
 "autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeIgnore=['\.~$', '\.pyc' ]
+let g:NERDTreeIgnore = [ '\.pyc$']
 
 " Doxygen
 let g:DoxygenToolkit_authorName="zuowenjian"
@@ -231,12 +231,15 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc     " MacOSX/Linux
 
 " bufexplorer
 " 
-nnoremap  <leader>be : BufExplorer
-nnoremap  <leader>bs : BufExplorerHorizontalSplit
+noremap  <F9> : BufExplorer<CR>
+noremap  <Leader>be : BufExplorer<CR>
+noremap  <Leader>bs : BufExplorerHorizontalSplit<CR>
+
 
 " vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 vnoremap <Leader>: :EasyAlign:s0l1<CR>
+
 
 " vim-devicons
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
